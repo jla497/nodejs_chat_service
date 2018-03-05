@@ -1,0 +1,32 @@
+stages:
+
+  - build
+
+  - test
+
+  - deploy
+
+cache:
+
+  paths:
+
+    - node_modules/
+
+run-server:
+
+  stage: build
+
+  script:
+
+    - echo "should have separate test and deploy stages for the container"
+
+deploy-server:
+  stage: deploy
+  script: 
+    - ./deploy.sh
+
+
+
+
+
+     
