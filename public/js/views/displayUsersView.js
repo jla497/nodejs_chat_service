@@ -12,8 +12,10 @@ define(['jquery', 'underscore', 'backbone', 'usermodel', 'usercollection', 'crea
 		events: {
 			'click .x-delete-user-btn': 	'deleteUser',
 			'click .x-create-user-btn': 	'openCreateUserView',
-			'click .x-demo-control-btn': 		'progressDemo'
+			'click .x-demo-control-btn': 	'progressDemo'
 		},
+
+
 		render: function() {
 			var template = _.template('<tr><td><%= username %></td>\
 			<td><%= name %></td><td><%= phonenumber %></td>\
