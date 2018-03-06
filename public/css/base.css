@@ -1,0 +1,117 @@
+/*All html files for the project should reference this CSS file*/
+header {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 35px;
+	background: #333;
+}
+
+nav {
+	position: absolute !important;
+	top: 35px !important;
+	left: 0px;
+	right: 0px;
+}
+
+section {
+	position: absolute;
+	top: 88px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding: 10px;
+	overflow-y: auto;
+}
+
+header > h1, header > h2 {
+	display: inline-block;
+	color: #fff;
+	font-size: 25px;
+	margin: 0px;
+	padding: 3px;
+}
+
+header > h2 {
+	color: #337ab7;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+form > h2 {
+	margin: 10px 0px;
+	font-weight: bold;
+}
+
+.margin-right {
+	margin-right: 10px;
+}
+
+.margin-left {
+	margin-left: 10px;
+}
+
+.navbar-nav {
+	float: left !important;
+    margin: 0 !important;
+}
+
+.navbar-nav > li {
+	float: left !important;
+}
+
+.navbar-nav > li > a {
+	padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.hidden {
+	display: none;
+}
+
+.invalid-feedback {
+	color: #f77;
+}
+
+.invalid-input {
+	border-color: #f77 !important;
+}
+
+.x-backbone-container {
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+.x-backbone-thumbnail {
+	width: 25px;
+	margin: 5px 10px;
+	float: left;
+}
+
+.x-backbone-logo {
+	width: 50px;
+	float: left;
+}
+
+.x-backbone-title {
+	display: inline-block;
+	font-size: 50px;
+	margin: 0px;
+}
+
+.x-backbone-subtitle {
+	position: absolute;
+	top: 60px;
+	padding-left: 52px;
+	font-size: 16px;
+}
+
+.x-presentation-container {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 90%;
+	padding: 4%;
+}

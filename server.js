@@ -10,6 +10,11 @@ app.get('/backbone', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+app.get('/users', function(req, res) {
+    res.sendFile(__dirname + '/public/usersApp.html');
+});
+
+
 app.get('/api/users',function(req, res) {
 	// send list of users
 	res.send([

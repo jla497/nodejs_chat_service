@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="Backbone.js Tech Evaluation"/>
+        <meta name="keywords" content="backbone,underscore,javascript,techeval,project"/>
+        <title>Tech Eval: Users</title>
+        <link rel="icon" href="../images/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/usersApp.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script data-main="../js/main" src="../js/require.js"></script>
+    </head>
+    <body>
+        <header>
+            <img class="x-backbone-thumbnail" src="../images/backbone_logo.png" alt="The logo for backbone.js"/>
+            <h1>Users</h1>
+        </header>
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="presentation.html">Presentation</a></li>
+                <li class="active"><a href="usersApp.html">Users Demo</a></li>
+            </ul>
+        </nav>
+        <section>
+            <div class="x-users-container container-fluid">
+                <div class="x-user-header">
+                    <h2>Users</h2>
+                    <button type="button" class="btn btn-primary x-create-user-btn">Create User</button>
+                </div>
+
+                <div class="x-table-container well">
+                    <table class="table">
+                        <thead class="x-table-header">
+                            <tr>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="x-user-table-body"></tbody>
+                    </table>
+                </div>
+
+                <button class="x-demo-control-btn">
+                    <span>DEMO</span>
+                </button>
+            </div>
+
+            <div class="x-create-user-container hidden">
+                <form class="x-create-user-form container well">
+                    <h2>Create User</h2>
+
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required autofocus/>
+                        <div class="x-username-feedback invalid-feedback hidden">Username required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required/>
+                        <div class="x-name-feedback invalid-feedback hidden">Name required</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phonenumber">Phone Number:</label>
+                        <input type="text" class="form-control" id="phonenumber" name="phonenumber"/>
+                        <div class="x-phonenumber-feedback invalid-feedback hidden">Phone Number must be all digits</div>
+                    </div>
+
+                    <button type="button" class="x-sumit-user-btn btn btn-primary pull-right">Submit</button>
+                    <button type="reset" class="btn btn-default pull-right margin-right">Cancel</button>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
