@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(methodOverride());
 app.use(myCookieParser);
-app.use(expressSession({ 
+app.use(expressSession({
+    key:'connect.sid',
     secret: 'secret', 
     store: sessionStore, 
     resave: false,
@@ -58,6 +59,7 @@ var req = httpclient.get('https://backbone-demo-a094e.firebaseio.com/users.json?
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
     if (req.session.user) {
+        console.log('got chat');
         res.redirect('/chat');
     } else {
         next();
@@ -84,6 +86,11 @@ app.route('/login')
             res.redirect('/login');
         }
     });
+
+app.get('/logout', function(req, res) {
+  res.clearCookie('connect.sid');
+  res.redirect('/');
+});
 
 app.get('/chat', function(req, res) {
     if(req.session.user) {

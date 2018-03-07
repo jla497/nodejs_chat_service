@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
-
-<head>
+    <head>
+        <title>chat-app</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>node-server-chat-demo</title>
     <style>
     * {
@@ -53,19 +54,6 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-    // $(function() {
-    //     var socket = io.connect();
-    //     $('form').submit(function() {
-    //         socket.emit('foo', $('#m').val());
-    //         $('#m').val('');
-    //         return false;
-    //     });
-
-    //     socket.on('session', function(msg) {
-    //         $('#messages').append($('<li>').text(msg.foo));
-    //     });
-
-    // });
     $(function() {
         var socket = io();
         $('form').submit(function() {
@@ -80,14 +68,33 @@
 
     });
     </script>
-</head>
+    </head>
+    <body class="container">
+        <div class="page-header">
+            <h1>CMPT470-chat-app</h1>
+        </div>
 
-<body>
-    <ul id="messages"></ul>
-    <form action="">
-        <input id="m" autocomplete="off" />
-        <button>Send</button>
-    </form>
-</body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                    </ul>
 
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="container row">
+            <ul id="messages"></ul>
+            <form action="">
+                <input id="m" autocomplete="off" />
+                <button>Send</button>
+            </form>                           
+        </div>
+    </body>
 </html>
