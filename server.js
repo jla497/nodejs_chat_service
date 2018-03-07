@@ -1,5 +1,6 @@
 var httpclient = require('https');
 var morgan = require('morgan');
+var helmet = require('helmet');
 var _ = require('underscore');
 var http = require('http')
   , path = require('path')
@@ -14,6 +15,8 @@ var http = require('http')
 var sessionStore = new expressSession.MemoryStore();
 //log info about requests
 app.use(morgan('dev'));
+//set HTTP headers to protect against web vulnerabilities
+app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(methodOverride());
