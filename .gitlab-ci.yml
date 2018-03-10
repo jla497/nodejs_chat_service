@@ -18,6 +18,7 @@ build-server:
 deploy-server:
   stage: deploy
   script: 
+    - pwd
     - sudo vagrant provision
 
   environment:
