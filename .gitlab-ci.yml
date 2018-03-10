@@ -22,7 +22,7 @@ deploy-server:
   script: 
     - pwd
     
-    - sudo vagrant provision
+#    - sudo vagrant provision
 
   environment:
     name: staging
