@@ -19,7 +19,9 @@ deploy-server:
   stage: deploy
   script: 
     - pwd
-    - cp * ~/deploy_project
+    - sudo cp package.json ~/deploy_project
+    - sudo cp public/ ~/deploy_project
+    - sudo cp server.js ~/deploy_project
 #    - sudo vagrant provision
 
   environment:
