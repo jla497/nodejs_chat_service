@@ -7,7 +7,7 @@ stages:
   - deploy
 
 before_script:
-  sudo rm -r -f .vagrant
+  - sudo rm -r -f .vagrant
   
 build-server:
 
