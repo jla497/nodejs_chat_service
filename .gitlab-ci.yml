@@ -18,7 +18,8 @@ build-server:
 deploy-server:
   stage: deploy
   script: 
-    - ./deploy.sh
+    - sudo vagrant provision
+
   environment:
     name: staging
   #only:
