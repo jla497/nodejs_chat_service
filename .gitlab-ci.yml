@@ -19,11 +19,13 @@ deploy-server:
   stage: deploy
   script: 
     - pwd
-    - sudo cp package.json ~/deploy_project
-    - sudo cp -r public/ ~/deploy_project
-    - sudo cp server.js ~/deploy_project
+    - sudo cp package.json /home/gitlab-runner/deploy_project
+    - sudo cp -r public/ /home/gitlab-runner/deploy_project
+    - sudo cp server.js /home/gitlab-runner/deploy_project
+    - sudo cp Vagrantfile /home/gitlab-runner/deploy_project
     - cd /home/gitlab-runner/deploy_project
     - sudo touch foo.txt
+    - sudo vagrant up --provider=digital_ocean
     - sudo vagrant provision
 
   environment:
