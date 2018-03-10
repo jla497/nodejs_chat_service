@@ -20,9 +20,10 @@ deploy-server:
   script: 
     - pwd
     - sudo cp package.json ~/deploy_project
-    - sudo cp public/ ~/deploy_project
+    - sudo cp -r public/ ~/deploy_project
     - sudo cp server.js ~/deploy_project
-#    - sudo vagrant provision
+    - cd /home/gitlab-runner/deploy_project
+    - sudo vagrant provision
 
   environment:
     name: staging
