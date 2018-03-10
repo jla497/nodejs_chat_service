@@ -24,7 +24,7 @@ deploy-server:
     - sudo cp server.js /home/gitlab-runner/deploy_project
     - sudo cp Vagrantfile /home/gitlab-runner/
     - cd /home/gitlab-runner/deploy_project
-    - vagrant plugin install vagrant-digitalocean
+    - sudo vagrant plugin install vagrant-digitalocean
     - sudo vagrant init
     - sudo cp ../Vagrantfile .
     - sudo vagrant up --provider=digital_ocean
