@@ -6,19 +6,22 @@ stages:
 
   - deploy
 
-
+before_script:
+  sudo rm -r -f .vagrant
+  
 build-server:
 
   stage: build
 
   script:
-
+   
     - echo "should have separate test and deploy stages for the container"
 
 deploy-server:
   stage: deploy
   script: 
     - pwd
+    
     - sudo vagrant provision
 
   environment:
