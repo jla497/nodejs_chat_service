@@ -14,9 +14,7 @@ build-server:
   stage: build
 
   script:
-   
-    - echo "should have separate test and deploy stages for the container"
-
+    - echo "build"
 deploy-server:
   stage: deploy
   script: 
