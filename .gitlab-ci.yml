@@ -23,7 +23,7 @@ deploy-server:
     - sudo cp -r public/ ~/deploy_project
     - sudo cp server.js ~/deploy_project
     - cd /home/gitlab-runner/deploy_project
-    - touch foo.txt
+    - sudo touch foo.txt
     - sudo vagrant provision
 
   environment:
