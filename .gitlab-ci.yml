@@ -23,7 +23,7 @@ deploy-server:
     - sudo cp -r public/ ~/deploy_project
     - sudo cp server.js ~/deploy_project
     - cd /home/gitlab-runner/deploy_project
-    - sudo vagrant provision
+    - sudo vagrant provision --provider=digital_ocean
 
   environment:
     name: staging
