@@ -1,4 +1,3 @@
-
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -8,7 +7,7 @@
 # you're doing.
 Vagrant.configure("2") do |config|
 
- config.ssh.private_key_path = "~/.ssh/id_rsa"
+ config.ssh.private_key_path = "/home/jla497/.ssh/id_rsa"
  config.vm.box = "digital_ocean"
  config.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
  config.vm.provider :digital_ocean do |provider|
