@@ -1,0 +1,12 @@
+extends common/page
+
+block content
+	div.container
+		form.x-login-form(action="/login" method="post")
+			h2 Login
+			div.form-group
+				label(for="username") Username:
+				input(type="text" class="form-control" id="username" name="username" required autofocus)
+				div.x-username-feedback.invalid-feedback.hidden Username required
+			a.x-login-btn.btn.btn-default(href="/sign-up") Sign-Up
+			button.x-login-btn.btn.btn-primary(type="submit") Login

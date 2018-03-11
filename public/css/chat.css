@@ -1,0 +1,13 @@
+.x-message-window {
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	padding: 25px;
+}
+
+.x-message-input {
+	position: absolute;
+	bottom: 40px;
+	height: 40px;
+	left: 0px;
+	right: 0px;
+}

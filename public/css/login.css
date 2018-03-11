@@ -1,0 +1,10 @@
+.x-login-form {
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	padding: 25px;
+}
+
+.x-login-btn {
+	width: 50%;
+	border-radius: 0px !important;
+}

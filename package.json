@@ -19,6 +19,7 @@
     "jade": "^1.11.0",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
+    "pug": "^2.0.1",
     "session.socket.io": "^0.2.1",
     "socket.io": "^2.0.4",
     "underscore": "^1.8.3"
