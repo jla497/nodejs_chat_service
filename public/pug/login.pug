@@ -2,11 +2,16 @@ extends common/page
 
 block content
 	div.container
+		h2.form-header Login
 		form.x-login-form(action="/login" method="post")
-			h2 Login
 			div.form-group
-				label(for="username") Username:
-				input(type="text" class="form-control" id="username" name="username" required autofocus)
-				div.x-username-feedback.invalid-feedback.hidden Username required
-			a.x-login-btn.btn.btn-default(href="/sign-up") Sign-Up
+				div.input-group
+					span.input-group-addon
+						i.fa.fa-user.x-input-icon.col-sm-2.control-label
+					input.x-input(type="text" class="form-control" id="username" name="username" required autofocus placeholder="Username...")
+				div.input-group
+					span.input-group-addon
+						i.fa.fa-unlock-alt.x-input-icon.col-sm-2.control-label
+					input.x-input(type="password" class="form-control" id="password" name="password" required autofocus placeholder="Password...")
+			a.x-login-btn.btn.btn-default(href="/signup") Signup
 			button.x-login-btn.btn.btn-primary(type="submit") Login

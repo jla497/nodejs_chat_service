@@ -34,48 +34,45 @@ app.use(expressSession({
 
 const server = http.Server(app);
 const io = require('socket.io')(server);
-
 const SessionSockets = require('session.socket.io');
 const sessionSockets = new SessionSockets(io, sessionStore, myCookieParser);
 
 //fetch list of users from firebase
 let users = [];
   
-const req = httpclient.get('https://backbone-demo-a094e.firebaseio.com/users.json?', function(res) {
-  // Buffer the body entirely for processing as a whole.
+const req = httpclient.get('https://backbone-demo-a094e.firebaseio.com/users.json?', (res) => {
   let bodyChunks = [];
   let jsonObj = {};
-  res.on('data', function(chunk) {
-    // You can process streamed parts here...
+
+  res.on('data', (chunk) => {
     bodyChunks.push(chunk);
-  }).on('end', function() {
-    var body = Buffer.concat(bodyChunks);
+  }).on('end', () => {
+    let body = Buffer.concat(bodyChunks);
     jsonObj = JSON.parse(body);
-    users = _.map(jsonObj, function(value,index) {
+
+    users = _.map(jsonObj, (value,index) => {
         return value;
     });
 
     const chatController = new ChatController(app, req, users);
     chatController.registerUrlWatcher('/login', {pug: 'login', title: 'Login'});
     chatController.registerUrlWatcher('/logout', {logout: true});
+    chatController.registerUrlWatcher('/signup', {pug: 'signup', title: 'Signup', requireLogin: false});
     chatController.registerUrlWatcher('/chat', {pug: 'chat', title: 'Chat'});
     chatController.registerUrlWatcher('/users', {pug: 'users', title: 'Users'});
   })
 });
 
-// middleware function to check for logged-in users
-sessionSockets.on('connection', function(err, socket, session) {
-    //new connection broadcast
+sessionSockets.on('connection', (err, socket, session) => {
     if(session) {
         if(session.user)
           io.emit('chat message', `${session.user} joined the chat room`);
       }
-    
-    //public chat event
-    socket.on('chat message', function(msg) {
+
+    socket.on('chat message', (msg) => {
         if(session) {
             if(session.user)
-              io.emit('chat message', `${session.user}: ${msg}`);
+                io.emit('chat message', `${session.user}: ${msg}`);
         }
     });
 });

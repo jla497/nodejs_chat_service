@@ -1,0 +1,30 @@
+extends common/page
+
+block content
+	div.container
+		h2.form-header Signup
+		form.x-login-form(action="/signup" method="post")
+			div.form-group
+				div.input-group
+					span.input-group-addon
+						i.fa.fa-user.x-input-icon.col-sm-2.control-label
+					input.x-input(type="text" class="form-control" id="username" name="username" required autofocus placeholder="Username...")
+				div.input-group
+					span.input-group-addon
+						i.fa.fa-user.x-input-icon.col-sm-2.control-label
+					input.x-input(type="text" class="form-control" id="name" name="name" required autofocus placeholder="Name...")
+				div.input-group
+					span.input-group-addon
+						i.fa.fa-unlock-alt.x-input-icon.col-sm-2.control-label
+					input.x-input(type="password" class="form-control" id="password" name="password" required autofocus placeholder="Password...")
+				div.input-group
+					span.input-group-addon
+						i.fa.fa-check-circle.x-input-icon.col-sm-2.control-label
+					input.x-input(type="password" class="form-control" id="confirm" name="confirm" required autofocus placeholder="Confirm Password...")
+				div.input-group
+					span.input-group-addon
+						i.fa.fa-phone.x-input-icon.col-sm-2.control-label
+					input.x-input(type="text" class="form-control" id="phonenumber" name="phonenumber" autofocus placeholder="Phone Number...")
+			a.x-login-btn.btn.btn-default(href="/login") Cancel
+			button.x-login-btn.btn.btn-primary(type="submit") Confirm
+			

@@ -24,7 +24,7 @@ nav {
 section {
 	position: absolute;
 	top: 88px;
-	bottom: 0px;
+	bottom: 30px;
 	left: 0px;
 	right: 0px;
 	padding: 10px;
@@ -47,6 +47,22 @@ header > h2 {
 
 form > h2 {
 	margin: 10px 0px;
+	font-weight: bold;
+}
+
+footer {
+	position: absolute;
+	bottom: 0px;
+	height: 30px;
+	left: 0px;
+	right: 0px;
+	padding: 5px;
+	background-color: rgba(0,0,0,0.8);
+	color: white;
+}
+
+.form-header {
+	color: white;
 	font-weight: bold;
 }
 
@@ -122,16 +138,13 @@ form > h2 {
 	padding: 4%;
 }
 
-#messages {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.x-header-bar-btn {
+	color: white;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 0px !important;
 }
 
-#messages li {
-    padding: 5px 10px;
-}
-
-#messages li:nth-child(odd) {
-    background: #eee;
+.x-header-bar-btn:hover {
+	color: white !important;
+	background-color: rgba(0,0,0,0.1);
 }
