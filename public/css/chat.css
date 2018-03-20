@@ -1,0 +1,55 @@
+.x-chat {
+	padding: 10px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	width: 75%;
+}
+
+.x-chat-users {
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+	padding: 10px;
+	width: 25%;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	width: 25%;
+}
+
+.x-message-window {
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	position: absolute;
+	top: 0px;
+	bottom: 30px;
+	left: 0px;
+	right: 0px;
+	list-style-type: none;
+	overflow-y: auto;
+	padding: 0px;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.x-message-window li {
+    padding: 5px 10px;
+}
+
+.x-message-window li:nth-child(odd) {
+    background: rgb(0,0,0,0.2);
+}
+
+.x-message-input {
+	padding: 10px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 40px;
+	background-color: rgb(0,0,0,0.6);
+	color: white;
+	border: 0px;
+}

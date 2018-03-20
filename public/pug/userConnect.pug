@@ -1,0 +1,12 @@
+script.
+	var socket = io();
+
+	$('form').submit(function() {
+	  socket.emit('chat message', $('.x-message-input').val());
+	  $('.x-message-input').val('');
+	  return false;
+	});
+
+	socket.on('chat message', function(msg) {
+	  $('.x-message-window').prepend($('<li>').text(msg));
+	});
