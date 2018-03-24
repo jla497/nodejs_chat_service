@@ -1,10 +1,29 @@
-nav.navbar.navbar-default
+nav.navbar.navbar-dark.bg-dark
 	ul.nav.navbar-nav
-		li
-			a(href="#home") Home
-		li
-			a(a href="presentation.html") Presentation
-		li.active
-			a(href="usersApp.html") Users Demo
-		li.right
-			a(href="#login") Login
+		if title == 'Chat'
+			li.nav-item.active
+				a.nav-link(href="/chat") Chat
+		else
+			li.nav-item
+				a.nav-link(href="/chat") Chat
+
+		if title == 'Pug vs. HTML'
+			li.nav-item.active
+				a.nav-link(a href="/pug-vs-html") Pug vs. HTML
+		else
+			li.nav-item
+				a.nav-link(a href="/pug-vs-html") Pug vs. HTML
+
+		if title == 'ES6 vs. JS'
+			li.nav-item.active
+				a.nav-link(a href="/es6-vs-js") ES6 vs. JS
+		else
+			li.nav-item
+				a.nav-link(a href="/es6-vs-js") ES6 vs. JS
+
+		if title == 'SCSS vs. CSS'
+			li.nav-item.active
+				a.nav-link(a href="/scss-vs-css") SCSS vs. CSS
+		else
+			li.nav-item
+				a.nav-link(a href="/scss-vs-css") SCSS vs. CSS

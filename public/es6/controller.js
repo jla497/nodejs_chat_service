@@ -1,14 +1,13 @@
 const $ = require('jquery');
-const Chat = require("./chat.js")
 
 module.exports = class ChatController {
 	constructor(app, req, users) {
 		this.app = app;
 		this.req = req;
 		this.users = users;
+		this.onlineUsers = [];
 		this.handleLoginPage();
 		this.handleSignupPage();
-		this.runChat();
 	}
 
 	registerUrlWatcher(url, {pug, title, redirect, logout, requireLogin = true}) {
@@ -20,11 +19,11 @@ module.exports = class ChatController {
 			else if(redirect)
 	            res.redirect(redirect);
 	        else if(req.session.user)
-				res.render(pug, {title});
+				res.render(pug, {title, user: req.session.user, users: this.onlineUsers});
 			else if(requireLogin)
 				res.redirect('/login');
 			else
-				res.render(pug, {title});
+				res.render(pug, {title, users: this.onlineUsers});
 		});
 	}
 
@@ -37,8 +36,9 @@ module.exports = class ChatController {
 				let username = req.body.username;
         		let foundUser = this.users.filter((user) => {return user.username == username;});
 
-		        if(foundUser.length > 0) {
+		        if(foundUser.length > 0 && !this.userAlreadyConnected(username)) {
 		            req.session.user = username;
+		            this.onlineUsers.push(username);
 		            console.log('found user: ' + req.session.user);
 		            res.redirect('/chat');
 		        }
@@ -58,7 +58,7 @@ module.exports = class ChatController {
 		        	&& req.name != '') {
 		        	// TODO: Send request to firebase to create the new user
 		            console.log('created user: ' + req.session.user);
-		            req.session.user = username;
+		            this.onlineUsers.push(username);
 		            res.redirect('/chat');
 		        }
 			});
@@ -71,8 +71,14 @@ module.exports = class ChatController {
         	next();
 	}
 
-	runChat()
-	{
-		const chatRoom = new Chat();
+	setUserOffline(user) {
+		var index = this.onlineUsers.indexOf(user);
+
+		if(index >= 0)
+			this.onlineUsers.splice(index, 1);
+	}
+
+	userAlreadyConnected(user) {
+		return this.onlineUsers.indexOf(user) >= 0;
 	}
 }

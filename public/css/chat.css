@@ -43,13 +43,68 @@
 }
 
 .x-message-input {
-	padding: 10px;
+	/* Have to use !important to override bootstrap */
+	padding: 10px !important;
+	position: absolute !important;
+	bottom: 0px !important;
+	left: 0px !important;
+	width: 100% !important;
+	height: 40px !important;
+	background-color: rgb(0,0,0,0.6) !important;
+	color: white !important;
+	border: 0px !important;
+}
+
+.x-users-list-online {
+	overflow-y: auto;
 	position: absolute;
-	bottom: 0px;
-	left: 0px;
+	top: 40px;
+	bottom: 40px;
+	left: 10px;
+	right: 10px;
+	list-style-type: none;
+    padding: 0px;
+}
+
+.x-users-list-online li:nth-child(odd) {
+    background: rgb(0,0,0,0.2);
+}
+
+.x-users-list-online li:nth-child(even) {
+    background: rgb(0,0,0,0.1);
+}
+
+.x-user-block {
+	float: left;
+	width: 5px !important;
+	height: 25px !important;
+	background-color: blue;
+}
+
+.x-user-name {
+	padding: 5px;
 	width: 100%;
-	height: 40px;
-	background-color: rgb(0,0,0,0.6);
+}
+
+.x-chat-user {
+	position: relative;
+    display: table;
+    width: 100%;
+}
+
+li.nav-item.active {
+	background-color: lightgrey;
+}
+
+li.nav-item.active > .nav-link {
+	color: black;
+}
+
+.nav-link {
+	font-weight: bold;
 	color: white;
-	border: 0px;
+}
+
+.nav-link:hover {
+	color: black;
 }

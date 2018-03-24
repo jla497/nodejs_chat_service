@@ -7,6 +7,9 @@ block head
 block header
 	include common/header-bar
 
+block nav
+	include common/nav-bar
+
 block content
 	div.container-fluid
 		div.x-chat
@@ -14,5 +17,9 @@ block content
 			form(action="")
 				input.x-message-input(type="text" placeholder="Message...")
 		div.x-chat-users
+			h5 Online Users
+			ul.x-users-list-online
+				each user in users
+					include chatUser
 
 	include userConnect
