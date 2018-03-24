@@ -1,3 +1,10 @@
 header
 	h1 Chat
-	a.btn.pull-right.x-header-bar-btn(href="/logout") Logout
+	button.btn.pull-right.x-header-bar-btn Logout
+
+script.
+	var user = "#{user}";
+	$('.x-header-bar-btn').click(function() {
+		socket.emit('user disconnect', user);
+		$(location).attr('href', '/logout');
+	});

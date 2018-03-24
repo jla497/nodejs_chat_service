@@ -39,6 +39,7 @@ const sessionSockets = new SessionSockets(io, sessionStore, myCookieParser);
 
 //fetch list of users from firebase
 let users = [];
+let chatController;
   
 const req = httpclient.get('https://backbone-demo-a094e.firebaseio.com/users.json?', (res) => {
   let bodyChunks = [];
@@ -54,11 +55,15 @@ const req = httpclient.get('https://backbone-demo-a094e.firebaseio.com/users.jso
         return value;
     });
 
-    const chatController = new ChatController(app, req, users);
+    chatController = new ChatController(app, req, users);
+    chatController.registerUrlWatcher('/', {redirect: '/login'});
     chatController.registerUrlWatcher('/login', {pug: 'login', title: 'Login'});
     chatController.registerUrlWatcher('/logout', {logout: true});
     chatController.registerUrlWatcher('/signup', {pug: 'signup', title: 'Signup', requireLogin: false});
     chatController.registerUrlWatcher('/chat', {pug: 'chat', title: 'Chat'});
+    chatController.registerUrlWatcher('/pug-vs-html', {pug: 'pug-vs-html', title: 'Pug vs. HTML'});
+    chatController.registerUrlWatcher('/es6-vs-js', {pug: 'es6-vs-js', title: 'ES6 vs. JS'});
+    chatController.registerUrlWatcher('/scss-vs-css', {pug: 'scss-vs-css', title: 'SCSS vs. CSS'});
     chatController.registerUrlWatcher('/users', {pug: 'users', title: 'Users'});
   })
 });
@@ -66,7 +71,10 @@ const req = httpclient.get('https://backbone-demo-a094e.firebaseio.com/users.jso
 sessionSockets.on('connection', (err, socket, session) => {
     if(session) {
         if(session.user)
+        {
           io.emit('chat message', `${session.user} joined the chat room`);
+          io.emit('user connect', session.user);
+        }
       }
 
     socket.on('chat message', (msg) => {
@@ -74,6 +82,11 @@ sessionSockets.on('connection', (err, socket, session) => {
             if(session.user)
                 io.emit('chat message', `${session.user}: ${msg}`);
         }
+    });
+
+    socket.on('user disconnect', (user) => {
+      chatController.setUserOffline(user);
+      io.emit('user disconnect', user);
     });
 });
 

@@ -10,3 +10,15 @@ script.
 	socket.on('chat message', function(msg) {
 	  $('.x-message-window').prepend($('<li>').text(msg));
 	});
+
+	socket.on('user disconnect', function(user) {
+		console.log(user);
+		$('li#' + user).remove();
+	});
+
+	socket.on('user connect', function(user) {
+		if(!$('li#' + user).length) {
+			$('.x-users-list-online')
+			.append('<li class=".x-chat-user" id="' + user + '"><span class="x-user-block"></span><span class="x-user-name">' + user + '</span></li>');
+		}
+	});
