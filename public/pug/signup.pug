@@ -1,8 +1,16 @@
 extends common/page
 
 block content
+
 	div.container
 		h2.form-header Signup
+
+		if userExists
+			div.alert.alert-danger(role='alert') Username already exists
+
+		if passwordNotConfirmed
+			div.alert.alert-danger(role='alert') Confirmation Password must match the Password field
+
 		form.x-login-form(action="/signup" method="post")
 			div.form-group
 				div.input-group
