@@ -1,4 +1,5 @@
 const $ = require('jquery');
+const firebase = require('firebase');
 
 module.exports = class ChatController {
 	constructor(app, req, users) {
@@ -8,6 +9,13 @@ module.exports = class ChatController {
 		this.onlineUsers = [];
 		this.handleLoginPage();
 		this.handleSignupPage();
+
+		this.firebaseDB = firebase.initializeApp({
+			apiKey: 'AIzaSyAcZgdaSLG99pwR2ij0dFzyy0-DRHWFsl8',
+			authDomain: 'backbone-demo-a094e.firebaseio.com',
+			databaseURL: 'https://backbone-demo-a094e.firebaseio.com',
+			storageBucket: 'backbone-demo-a094e.appspot.com'
+		});
 	}
 
 	registerUrlWatcher(url, {pug, title, redirect, logout, requireLogin = true}) {
@@ -37,13 +45,19 @@ module.exports = class ChatController {
         		let foundUser = this.users.filter((user) => {return user.username == username;});
 
 		        if(foundUser.length > 0 && !this.userAlreadyConnected(username)) {
-		            req.session.user = username;
-		            this.onlineUsers.push(username);
-		            console.log('found user: ' + req.session.user);
-		            res.redirect('/chat');
+		        	foundUser = foundUser[0];
+		        	if(foundUser.password && req.body.password != foundUser.password)
+		        		res.render('login', {title: 'Login', passwordIncorrect: true});
+		        	else
+		        	{
+			            req.session.user = username;
+			            this.onlineUsers.push(username);
+			            console.log('found user: ' + req.session.user);
+			            res.redirect('/chat');
+			        }
 		        }
 		        else
-		            res.redirect('/login');
+		            res.render('login', {title: 'Login', passwordIncorrect: true});
 			});
 	}
 
@@ -53,13 +67,33 @@ module.exports = class ChatController {
 				let username = req.body.username;
         		let foundUser = this.users.filter((user) => {return user.username == username;});
 
-		        if(foundUser.length <= 0
-		        	&& req.password == req.confirm
-		        	&& req.name != '') {
-		        	// TODO: Send request to firebase to create the new user
-		            console.log('created user: ' + req.session.user);
-		            this.onlineUsers.push(username);
-		            res.redirect('/chat');
+        		if(foundUser.length > 0)
+        			res.render('signup', {title: 'Signup', userExists: true});
+        		else if(req.body.password != req.body.confirm)
+        			res.render('signup', {title: 'Signup', passwordNotConfirmed: true});
+        		else {
+        			this.firebaseDB.database().ref().child('users').push().set({
+        				name: req.body.name,
+        				phonenumber: req.body.phonenumber,
+        				username: req.body.username,
+        				password: req.body.password
+        			},
+        			(error) => {
+        				if(error)
+        					res.render('signup', {title: 'Signup', userExists: true});
+        				else
+        				{
+        					this.users.push({
+        						name: req.body.name,
+		        				phonenumber: req.body.phonenumber,
+		        				username: req.body.username,
+		        				password: req.body.password
+        					})
+							this.onlineUsers.push(username);
+							req.session.user = username;
+		            		res.redirect('/chat');
+        				}
+        			});
 		        }
 			});
 	}

@@ -3,6 +3,10 @@ extends common/page
 block content
 	div.container
 		h2.form-header Login
+
+		if passwordIncorrect
+			div.alert.alert-danger(role='alert') Username or Password does not match
+
 		form.x-login-form(action="/login" method="post")
 			div.form-group
 				div.input-group
