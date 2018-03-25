@@ -1,0 +1,39 @@
+@import 'common/colours';
+@import 'common/structure';
+
+.x-compare-block {
+	margin: 10px 0px;
+}
+
+.x-compare-header {
+	padding: 10px;
+	margin: 0px;
+	width: 100%;
+	background-color: $background-darkest;
+	color: $font-light;
+	font-weight: bold;
+}
+
+.x-compare-body {
+	padding: 10px;	
+	margin: 0px;
+	width: 100%;
+	background-color: $background-light;
+	color: $font-light;
+}
+
+.x-compare-section {
+	background-color: $background-lightish;
+	padding: 10px;
+	box-shadow: 0px 0px 20px;
+	margin-bottom: 20px;
+}
+
+.x-compare-title {
+	font-weight: bold;
+	width: 100%;
+	margin: 0px;
+	padding: 10px;
+	color: $font-light;
+	background-color: $background-darkest;
+}
