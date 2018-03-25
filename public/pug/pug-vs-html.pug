@@ -1,0 +1,34 @@
+extends common/page
+
+block header
+	include common/header-bar
+
+block nav
+	include common/nav-bar
+
+block content
+	div.alert.alert-warning Note: The comparisions between Pug and HTML are real examples from the Chat Web App
+	div.container-fluid.x-compare-section
+		h2.x-compare-title LOGIC
+		div.x-compare-block
+			h3.x-compare-header Pug Logic
+			p.x-compare-body Developer's can incorperate logic statements into Pug templates instead of having to use Javascript to perform dynamic changes.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="YaxBvP" data-default-tab="html,result" data-user="JBird632" data-embed-version="2" data-pen-title="Pug Logic Example")
+		div.x-compare-block
+			h3.x-compare-header HTML Logic (with Javascript)
+			p.x-compare-body HTML has no method for representing logical statements and requires the help of Javascript to handle the calculations and then hide the elements to match the same behaviour has pug.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="Ovjdqp" data-default-tab="html,result" data-user="JBird632" data-embed-version="2" data-pen-title="HTML Logic Equivalent")
+
+	div.container-fluid.x-compare-section
+		h2.x-compare-title ITERATION
+		div.x-compare-block
+			h3.x-compare-header Pug Iteration
+			p.x-compare-body Pug uses a foreach type of iteration which adds the elements with the information of the current object of an array of objects (or variables).
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="wmqOdm" data-default-tab="html,result" data-user="JBird632" data-embed-version="2" data-pen-title="Pug Iteration Example")
+		div.x-compare-block
+			h3.x-compare-header HTML Iteration (with Javascript)
+			p.x-compare-body 
+				HTML requires has no form of iteration and requires Javascript to append elements in a similar fashion to Pug.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="WzEmMa" data-default-tab="html,result" data-user="JBird632" data-embed-version="2" data-pen-title="HTML Iteration Example")
+
+	script(async src="https://static.codepen.io/assets/embed/ei.js")
