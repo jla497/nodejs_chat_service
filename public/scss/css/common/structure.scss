@@ -1,0 +1,76 @@
+@mixin position-absolute($top, $right, $bottom, $left) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+@mixin position-absolute-left($top, $bottom, $left, $width) {
+	position: absolute;
+	top: $top;
+	bottom: $bottom;
+	left: $left;
+	width: $width;
+}
+
+@mixin position-absolute-right($top, $right, $bottom, $width) {
+	position: absolute;
+	top: $top;
+	bottom: $bottom;
+	right: $right;
+	width: $width;
+}
+
+@mixin position-absolute-top($top, $right, $left, $height) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	left: $left;
+	height: $height;
+}
+
+@mixin position-absolute-bottom($right, $bottom, $left, $height) {
+	position: absolute;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	height: $height;
+}
+
+@mixin position-absolute-bottom-left($bottom, $left, $width, $height) {
+	position: absolute;
+	bottom: $bottom;
+	left: $left;
+	width: $width;
+	height: $height;
+}
+
+@mixin position-absolute-bottom-right($bottom, $right, $width, $height) {
+	position: absolute;
+	bottom: $bottom;
+	right: $right;
+	width: $width;
+	height: $height;
+}
+
+@mixin position-absolute-top-left($top, $left, $width, $height) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	width: $width;
+	height: $height;
+}
+
+@mixin position-absolute-top-right($top, $right, $width, $height) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	width: $width;
+	height: $height;
+}
+
+@mixin size-full() {
+	width: 100%;
+	height: 100%;
+}

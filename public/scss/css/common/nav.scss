@@ -1,0 +1,44 @@
+@import 'colours';
+@import 'structure';
+
+li.nav-item.active {
+	background-color: $background-lightish;
+}
+
+li.nav-item.active > .nav-link {
+	color: $font-dark;
+}
+
+.nav-link {
+	font-weight: bold;
+	color: $font-light;
+}
+
+.nav-link:hover {
+	color: $font-dark;
+}
+
+.navbar-nav {
+	float: left !important;
+    margin: 0 !important;
+}
+
+.navbar-nav > li {
+	float: left !important;
+}
+
+.navbar-nav > li > a {
+	padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.x-header-bar-btn {
+	color: $font-light;
+	background-color: $background-darkish;
+	border-radius: 0px !important;
+}
+
+.x-header-bar-btn:hover {
+	color: white !important;
+	background-color: $background-dark;
+}

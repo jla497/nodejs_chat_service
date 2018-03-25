@@ -1,7 +1,10 @@
+@import 'common/colours';
+@import 'common/structure';
+
 .x-login-form {
-	background-color: rgba(0, 0, 0, 0.2);
-	color: white;
 	padding: 25px;
+	background-color: $background-dark;
+	color: $font-light;
 }
 
 .x-login-btn {
@@ -18,7 +21,7 @@
 }
 
 .x-input-icon {
-	color: white;
+	color: $font-light;
 }
 
 .input-group-addon {

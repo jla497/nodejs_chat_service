@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const expressSession = require('express-session');
+const sassMiddleware = require('node-sass-middleware');
 const ChatController = require('./public/es6/controller.js');
 const app = express();
 
@@ -16,6 +17,12 @@ const myCookieParser = cookieParser('secret');
 const sessionStore = new expressSession.MemoryStore();
 
 /* Application Setup */
+app.use(sassMiddleware({
+	src: path.join(__dirname, 'public/scss'),
+	dest: path.join(__dirname, 'public/'),
+	debug: true,
+	outputStyle: 'compressed'
+}));
 app.set('views', path.join(__dirname, 'public/pug'));
 app.set('view engine', 'pug');  // Handle pug rendering
 app.use(morgan('dev'));         //log info about requests

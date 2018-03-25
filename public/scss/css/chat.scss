@@ -1,0 +1,75 @@
+@import 'common/colours';
+@import 'common/structure';
+
+.x-chat {
+	padding: 10px;
+	@include position-absolute-left(0px, 0px, 0px, 75%);
+}
+
+.x-chat-users {
+	padding: 10px;
+	background-color: $background-darker;
+	color: $font-light;
+	@include position-absolute-right(0px, 0px, 0px, 25%);
+}
+
+.x-message-window {
+	padding: 0px;
+	background-color: $background-dark;
+	color: $font-light;
+	@include position-absolute(0px, 0px, 30px, 0px);
+	list-style-type: none;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.x-message-window li {
+	padding: 5px, 10px;
+}
+
+.x-message-window li:nth-child(odd) {
+    background-color: $background-dark;
+}
+
+.x-message-input {
+	/* Have to use !important to override bootstrap */
+	padding: 10px !important;
+	background-color: $background-darkest !important;
+	color: $font-light !important;
+	border: 0px !important;
+	@include position-absolute-bottom-left(0px, 0px, 100%, 40px);
+}
+
+.x-users-list-online {
+	padding: 0px;
+	overflow-y: auto;
+	list-style-type: none;
+	@include position-absolute(40px, 10px, 40px, 10px);
+}
+
+.x-users-list-online li:nth-child(odd) {
+    background: $background-darkish;
+}
+
+.x-users-list-online li:nth-child(even) {
+    background: $background-dark;
+}
+
+.x-user-block {
+	float: left;
+	width: 5px !important;
+	height: 25px !important;
+	background-color: blue;
+}
+
+.x-user-name {
+	padding: 5px;
+	width: 100%;
+}
+
+.x-chat-user {
+	position: relative;
+    display: table;
+    width: 100%;
+}
