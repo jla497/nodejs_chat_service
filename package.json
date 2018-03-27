@@ -25,6 +25,7 @@
     "morgan": "^1.9.0",
     "node-sass": "^4.8.3",
     "node-sass-middleware": "^0.11.0",
+    "pm2": "^2.10.1",
     "pug": "^2.0.1",
     "session.socket.io": "^0.2.1",
     "socket.io": "^2.0.4",
