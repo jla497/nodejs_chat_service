@@ -1,0 +1,31 @@
+extends common/page
+
+block head
+	script(type='text/javascript' src='/socket.io/socket.io.js')
+	script(type='text/javascript' src='https://code.jquery.com/jquery-1.11.1.js')
+
+block header
+	include common/header-bar
+
+block nav
+	include common/nav-bar
+
+block content
+	div.alert.alert-warning Note: The comparisions between ES6 and Javascript are real examples from the Chat Web App
+	div.container-fluid.x-compare-section
+		h2.x-compare-title Require / Import
+		div.x-compare-block
+			h3.x-compare-header NodeJS Require
+			p.x-compare-body NodeJS uses the #[strong require] method to include external modules and scripts into the current javascript file and stores the export into a const variable.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="aYVvdM" data-default-tab="js" data-user="JBird632" data-embed-version="2" data-pen-title="NodeJS Require Example")
+		div.x-compare-block
+			h3.x-compare-header Babel Import
+			p.x-compare-body Babael allows for the #[strong import] style of including external modules and precompiles the script to the define structure.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="MVOKjg" data-default-tab="js" data-user="JBird632" data-embed-version="2" data-pen-title="Babel Import Example")
+		div.x-compare-block
+			h3.x-compare-header Native Javscript Equivalent
+			p.x-compare-body Javascript cannot import other .js files and require the developer to include the dependencies in the .html file of the web page.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="jzaWwo" data-default-tab="js" data-user="JBird632" data-embed-version="2" data-pen-title="Javascript Example")
+
+	script(async src="https://static.codepen.io/assets/embed/ei.js")
+	include userConnect

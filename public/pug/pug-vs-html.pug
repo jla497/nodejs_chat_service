@@ -1,5 +1,9 @@
 extends common/page
 
+block head
+	script(type='text/javascript' src='/socket.io/socket.io.js')
+	script(type='text/javascript' src='https://code.jquery.com/jquery-1.11.1.js')
+
 block header
 	include common/header-bar
 
@@ -32,3 +36,4 @@ block content
 			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="WzEmMa" data-default-tab="html,result" data-user="JBird632" data-embed-version="2" data-pen-title="HTML Iteration Example")
 
 	script(async src="https://static.codepen.io/assets/embed/ei.js")
+	include userConnect
