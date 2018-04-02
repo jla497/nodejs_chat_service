@@ -17,6 +17,7 @@ deploy-server:
   stage: deploy
   script: 
     - pwd
+    - echo "$SSH_PRIVATE_KEY"
     - sudo scp -P 24 package.json jla497@csil-cpu470.csil.sfu.ca:~/final-project/
     - sudo scp -r public/ jla497@csil-cpu470.csil.sfu.ca:~/final-project/
     - sudo scp server.js jla497@csil-cpu470.csil.sfu.ca:~/final-project/
