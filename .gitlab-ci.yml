@@ -18,13 +18,13 @@ deploy-server:
   script: 
     - pwd
     - echo "${SSH_PRIVATE_KEY}"
-    - sudo scp -P 24 package.json jla497@csil-cpu470.csil.sfu.ca:~/final-project/
-    - sudo scp -r public/ jla497@csil-cpu470.csil.sfu.ca:~/final-project/
-    - sudo scp server.js jla497@csil-cpu470.csil.sfu.ca:~/final-project/
-    - sudo scp Vagrantfile jla497@csil-cpu470.csil.sfu.ca:~/final-project/
-    - ssh -p 24 jla497@csil-cpu470.csil.sfu.ca
-    - cd ~/final-project/
-    - vagrant provision
+    - sudo scp -o “StrictHostKeyChecking=no” -P 24 package.json jla497@csil-cpu470.csil.sfu.ca:~/final-project/
+   #- sudo scp -r public/ jla497@csil-cpu470.csil.sfu.ca:~/final-project/
+   #- sudo scp server.js jla497@csil-cpu470.csil.sfu.ca:~/final-project/
+   #- sudo scp Vagrantfile jla497@csil-cpu470.csil.sfu.ca:~/final-project/
+   #- ssh -p 24 jla497@csil-cpu470.csil.sfu.ca
+   #- cd ~/final-project/
+   #- vagrant provision
 
   environment:
     name: staging
