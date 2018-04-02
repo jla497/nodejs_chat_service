@@ -18,6 +18,7 @@ deploy-server:
   script: 
     - pwd
     - ssh -o StrictHostKeyChecking=no -p 24 jla497@csil-cpu470.csil.sfu.ca
+    - exit
    #- scp -o StrictHostKeyChecking=no -P 24 package.json jla497@csil-cpu470.csil.sfu.ca:~/final-project/
    #- sudo scp -r public/ jla497@csil-cpu470.csil.sfu.ca:~/final-project/
    #- sudo scp server.js jla497@csil-cpu470.csil.sfu.ca:~/final-project/
