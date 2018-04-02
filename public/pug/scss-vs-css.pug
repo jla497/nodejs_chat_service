@@ -1,0 +1,37 @@
+extends common/page
+
+block head
+	script(type='text/javascript' src='/socket.io/socket.io.js')
+	script(type='text/javascript' src='https://code.jquery.com/jquery-1.11.1.js')
+
+block header
+	include common/header-bar
+
+block nav
+	include common/nav-bar
+
+block content
+	div.alert.alert-warning Note: The comparisions between SCSS and CSS are real examples from the Chat Web App
+	div.container-fluid.x-compare-section
+		h2.x-compare-title Variables
+		div.x-compare-block
+			h3.x-compare-header SCSS Variable Injection
+			p.x-compare-body SCSS injects the values of variables into the variable references instead of using CSS3 variables which are not supported on all browsers.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="aYGWMB" data-default-tab="css" data-user="JBird632" data-embed-version="2" data-pen-title="SCSS Variable Injection Example")
+		div.x-compare-block
+			h3.x-compare-header CSS3 Variables
+			p.x-compare-body CSS3 allows variable usage, but is not supported on all browsers so in most cases developers avoid using them.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="wmjdZR" data-default-tab="css" data-user="JBird632" data-embed-version="2" data-pen-title="CSS3 Example")
+	div.container-fluid.x-compare-section
+		h2.x-compare-title Mixins
+		div.x-compare-block
+			h3.x-compare-header SCSS Mixin
+			p.x-compare-body SCSS provides mixins which act as functions and allow developers to minimize code, create shortcuts, and combine browser specific css calls.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="RMyVmy" data-default-tab="css" data-user="JBird632" data-embed-version="2" data-pen-title="SCSS Mixin Example")
+		div.x-compare-block
+			h3.x-compare-header CSS Equivalent
+			p.x-compare-body CSS has no method of handling duplicate code and prefer developers stack classes to gain similar results.
+			p.codepen(data-height="265" data-theme-id="0" data-slug-hash="yKjbmy" data-default-tab="css" data-user="JBird632" data-embed-version="2" data-pen-title="CSS Equivalent")
+
+	script(async src="https://static.codepen.io/assets/embed/ei.js")
+	include userConnect
